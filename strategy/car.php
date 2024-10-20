@@ -24,5 +24,12 @@ class Car {
     public function setPrice(float $price) {
         $this->price = $price;
     }
+
+    // Strategy for Discounts
+    public function brandDiscounts() {
+        if($this->brand->name == "bmw"){$discount = new BmwCouponGenerator();}
+        if($this->brand->name == "mercedes"){$discount = new MercedesCouponGenerator();}
+        return $discount;
+    }
 }
 ?>

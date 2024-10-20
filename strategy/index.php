@@ -17,11 +17,9 @@ discounts($car2, $isHighSeason, $bigStock);
 echo PHP_EOL;
 
 function discounts($car, $isHighSeason, $bigStock) {
-    if($car->getBrand()->name == "bmw"){$discount = new BmwCouponGenerator();}
-    if($car->getBrand()->name == "mercedes"){$discount = new MercedesCouponGenerator();}
-    $couponSeason = $discount->addSeasonDiscount($isHighSeason);
-    $couponStock = $discount->addStockDiscount($bigStock);
-
+    $couponGenerator = $car->brandDiscounts();
+    $couponSeason = $couponGenerator->addSeasonDiscount($isHighSeason);
+    $couponStock = $couponGenerator->addStockDiscount($bigStock);
     echo strtoupper($car->getBrand()->name) . PHP_EOL;
     echo "Seasonality discount : " . $couponSeason . "%.";
     echo PHP_EOL;
