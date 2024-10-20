@@ -17,22 +17,15 @@ discounts($car2, $isHighSeason, $bigStock);
 echo PHP_EOL;
 
 function discounts($car, $isHighSeason, $bigStock) {
-    if($car->getBrand()->name == "bmw"){
-        $discount = new BmwCouponGenerator();
-        echo strtoupper($car->getBrand()->name) . PHP_EOL;
-        echo "Seasonality discount : " . $discount->addSeasonDiscount($isHighSeason) . "%.";
-        echo PHP_EOL;
-        echo "Stock discount : " . $discount->addStockDiscount($bigStock) . "%.";
-        echo PHP_EOL;
-    }
-    elseif($car->getBrand()->name == "mercedes"){
-        $discount = new MercedesCouponGenerator();
-        echo strtoupper($car->getBrand()->name) . PHP_EOL;
-        echo "Seasonality discount : " . $discount->addSeasonDiscount($isHighSeason) . "%.";
-        echo PHP_EOL;
-        echo "Stock discount : " . $discount->addStockDiscount($bigStock) . "%.";
-        echo PHP_EOL;
-    }
-    else {echo "We don't have cars of that brand in stock.";}
+    if($car->getBrand()->name == "bmw"){$discount = new BmwCouponGenerator();}
+    if($car->getBrand()->name == "mercedes"){$discount = new MercedesCouponGenerator();}
+    $couponSeason = $discount->addSeasonDiscount($isHighSeason);
+    $couponStock = $discount->addStockDiscount($bigStock);
+
+    echo strtoupper($car->getBrand()->name) . PHP_EOL;
+    echo "Seasonality discount : " . $couponSeason . "%.";
+    echo PHP_EOL;
+    echo "Stock discount : " . $couponStock . "%.";
+    echo PHP_EOL;
 }
 ?>
