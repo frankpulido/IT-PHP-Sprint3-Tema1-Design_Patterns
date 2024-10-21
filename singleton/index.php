@@ -11,6 +11,7 @@ Tigger::getInstance() : Cómo se dice anteriormente, esta instrucción funciona,
 */
 
 $choice = -1;
+$tigger = Tigger::getInstance(); // I have to call the method creating 1 instance. Otherwise I don't implement Singleton.
 
 do {
     echo PHP_EOL;
@@ -22,10 +23,10 @@ do {
             echo "See you later, alligator!!!";
             break;
         case 1 :
-            echo Tigger::roar();
+            echo $tigger->roar();
             break;
         case 2 :
-            echo "The real and ONLY Tigger has roared " . Tigger::getRoarCount() . " times!!!...";
+            echo "The real and ONLY Tigger has roared " . $tigger->getRoarCount() . " times!!!...";
             break;
         default :
             echo "You must select a valid option (either 0, 1, 2)";
