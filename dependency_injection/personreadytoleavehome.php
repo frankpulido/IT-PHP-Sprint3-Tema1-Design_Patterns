@@ -18,15 +18,16 @@ class PersonReadyToLeaveHome {
         $this->name = $name;
         $this->somewhere = $somewhere;
         $this->mystuff = new Everything();
-        $this->getReady(); // sets up attribute $mystuff to "everything = true"
+        $this->getReady(); // sets up attribute $mystuff to "everything (all dependencies) = true"
     }
 
     public function getReady() {
         $this->mystuff->grabEverything();
         /*
         Next :
-        if($this->CHILD instanceof Worker){$this->mystuff->grabEverythingWorker();}
-        if($this->CHILD instanceof Student){$this->mystuff->grabEverythingStudent();}
+        if($this instanceof Worker){$this->mystuff->grabEverythingWorker();}
+        elseif(self() instanceof Student){$this->mystuff->grabEverythingStudent();}
+        else{$this->mystuff->grabCommonStuffEveryoneHas();} (cellphone, homekeys)
         Worker and Student will be CHILD of PersonReadyToLeaveHome and will have additional methods
         */
     }
