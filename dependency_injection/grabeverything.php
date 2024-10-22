@@ -2,7 +2,7 @@
 declare(strict_types=1);
 require "setpersonready.php";
 
-// I could have done different implementations for Class SetPersonReady according to the CHILD classes of a PersonReadyToLeaveHome PARENT class. Person could be the abstract parent of Student and Worker classes"... Dataprovider is a collection of Person objects in a Home, we don't know what we are going to receive for each Home.
+// I could have done different implementations for Class SetPersonReady according to the CHILD classes of a PersonReadyToLeaveHome PARENT class. Person could be the abstract parent of Student and Worker classes"... Dataprovider is a collection of Person objects in a Home, we don't know beforehand what we are going to receive from each Home.
 
 class Everything implements SetPersonReady {
     protected bool $wallet = false;
