@@ -11,6 +11,7 @@ require_once 'moodle_subject_publisher.php';
 require_once 'course_subscription_enums.php';
 require_once 'taskupload.php';
 require_once 'mentor_observer_subscriber.php';
+require_once 'student_observer_subscriber.php';
 /*
 Good one : https://medium.com/codex/observer-pattern-in-php-8-569c71dd7837
 Check Observer example. 2 classes missing : https://github.com/kamranahmedse/design-patterns-for-humans?tab=readme-ov-file#-observer
@@ -18,7 +19,6 @@ Check Observer example. 2 classes missing : https://github.com/kamranahmedse/des
 
 echo PHP_EOL;
 $moodle_subject_publisher = new Moodle();
-$subscribers = $moodle_subject_publisher->getSubscribers();
 
 echo "Let's upload 4 tasks : " . PHP_EOL;
 $upload1 = new TaskUpload("Frank", Course::PHP, "Sprint 3 - Design Patterns");
@@ -35,6 +35,14 @@ echo PHP_EOL;
 $moodle_subject_publisher->addUploadedTask($upload3);
 echo PHP_EOL;
 $moodle_subject_publisher->addUploadedTask($upload4);
+echo PHP_EOL;
+echo "***********************";
+echo PHP_EOL;
+
+echo "Ahora vamos a crear una nueva estudiante llamada Laia. Laia quiere estudiar FDLP" . PHP_EOL;
+$newStudent = new Student("Laia", Course::FDLP);
+echo PHP_EOL;
+$moodle_subject_publisher->addSubscriberStudent($newStudent);
 echo PHP_EOL;
 
 ?>
