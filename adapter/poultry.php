@@ -23,12 +23,12 @@ class Turkey {
 
 class TurkeyAdapter extends Turkey {
     public function quack() {
-        echo Turkey::gobble();
+        $this->gobble();
     }
 
     public function fly() {
         for($i=1; $i<=5; $i++) {
-            echo Turkey::fly();
+            parent::fly();
         }
         echo PHP_EOL;
     }

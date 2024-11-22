@@ -1,8 +1,6 @@
 <?php
 // The example here is very clarifying : https://refactoring.guru/design-patterns/adapter
 declare(strict_types=1);
-//require "duck.php";
-//require "turkey.php";
 require "poultry.php";
 
 function duck_interaction($duck) {
