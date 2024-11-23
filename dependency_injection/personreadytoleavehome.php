@@ -18,22 +18,17 @@ class PersonReadyToLeaveHome {
         $this->name = $name;
         $this->somewhere = $somewhere;
         $this->mystuff = $mystuff;
-        $this->getReady(); // sets up attribute $mystuff to "everything (all dependencies) = true"
+        $this->getReady(); // sets up attribute $mystuff to "everything (dependencies) = true"
     }
 
     public function getReady() {
-        $this->mystuff->grabEverything();
-        /*
-        Next :
-        if($this instanceof Worker){$this->mystuff->grabEverythingWorker();}
-        elseif(self() instanceof Student){$this->mystuff->grabEverythingStudent();}
-        else{$this->mystuff->grabCommonStuffEveryoneHas();} (cellphone, homekeys)
-        Worker and Student will be CHILD of PersonReadyToLeaveHome and will have additional methods
-        */
+        $this->mystuff->grabEverywhere();
+        if($this->somewhere == Place::School) { $this->mystuff->grabToSchool(); }
+        if($this->somewhere == Place::Work) { $this->mystuff->grabToWork(); }
     }
     
     public function headSomewhere() : string {
-        return "I am $this->name and I got ready to go to " . $this->somewhere->name;
+        return "I am $this->name and I got ready to go to " . $this->somewhere->name . PHP_EOL . "I have got my : " . $this->mystuff->toString() . ".";
     }
 }
 ?>
