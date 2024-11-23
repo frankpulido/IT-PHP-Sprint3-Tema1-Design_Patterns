@@ -11,13 +11,13 @@ It can be done through a constructor (hard dependency), through a setup function
 class PersonReadyToLeaveHome {
     protected string $name;
     protected Place $somewhere;
-    protected Everything $mystuff;
+    protected SetPersonReady $mystuff;
 
-    public function __construct(string $name, Place $somewhere)
+    public function __construct(string $name, Place $somewhere, SetPersonReady $mystuff)
     {
         $this->name = $name;
         $this->somewhere = $somewhere;
-        $this->mystuff = new Everything();
+        $this->mystuff = $mystuff;
         $this->getReady(); // sets up attribute $mystuff to "everything (all dependencies) = true"
     }
 

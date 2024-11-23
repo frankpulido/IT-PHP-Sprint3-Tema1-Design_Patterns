@@ -5,5 +5,4 @@ enum Place {
     case School;
     case Work;
 }
-
 ?>

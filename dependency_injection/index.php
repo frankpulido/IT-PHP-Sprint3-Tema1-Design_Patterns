@@ -2,13 +2,14 @@
 declare(strict_types=1);
 require "personreadytoleavehome.php";
 
-$person1 = new PersonReadyToLeaveHome ("Otto", Place::School);
-$person2 = new PersonReadyToLeaveHome("Otto's mother", Place::Work);
+$mystuff = new Everything();
+$person_student = new PersonReadyToLeaveHome ("Otto", Place::School, $mystuff);
+$person_worker = new PersonReadyToLeaveHome("Otto's mother", Place::Work, $mystuff);
 
 echo PHP_EOL;
-echo $person1->headSomewhere() . PHP_EOL;
+echo $person_student->headSomewhere() . PHP_EOL;
 echo PHP_EOL;
-echo $person2->headSomewhere(). PHP_EOL;
+echo $person_worker->headSomewhere(). PHP_EOL;
 echo PHP_EOL;
 
 ?>
