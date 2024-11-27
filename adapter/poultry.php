@@ -21,14 +21,20 @@ class Turkey {
     }
 }
 
-class TurkeyAdapter extends Turkey {
+class TurkeyAdapter { // class Adapter should encapsulate raher that inherit the original class
+
+    private Turkey $turkey;
+
+    public function __construct (Turkey $turkey) {
+        $this->turkey = $turkey;
+    }
     public function quack() {
-        $this->gobble();
+        $this->turkey->gobble();
     }
 
     public function fly() {
         for($i=1; $i<=5; $i++) {
-            parent::fly();
+            $this->turkey->fly();
         }
         echo PHP_EOL;
     }
